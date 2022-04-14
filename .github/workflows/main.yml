@@ -1,0 +1,18 @@
+name: main
+
+on:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish test coverage report
+        if: (steps.run-tests.outcome == 'failure' || steps.run-tests.outcome == 'success') && github.ref == 'refs/heads/develop'
+        uses: aurelien-baudet/workflow-dispatch@v2
+        with:
+          repo: BillKalaitzis/repo2
+          ref: refs/heads/main
+          workflow: main.yml
+          token: ${{ secrets.TOKEN }}
+          inputs: '{}'
