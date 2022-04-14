@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish test coverage report
-        uses: aurelien-baudet/workflow-dispatch@v2
+        uses: benc-uk/workflow-dispatch@1.1.0
         with:
           repo: BillKalaitzis/repo2
           ref: refs/heads/main
